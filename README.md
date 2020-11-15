@@ -37,5 +37,6 @@
  3. Сторонее api для получение курсов: https://api.exchangerate.host/
  
 Base url приложения: /api
+
 Пример запроса: http://localhost/api/exchange-rates
 

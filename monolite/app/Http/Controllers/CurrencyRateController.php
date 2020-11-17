@@ -10,6 +10,7 @@ use App\Models\Currency;
 use App\Models\ExchangeRate;
 use App\Models\ExchangeRateHistory;
 use App\Services\ExchangeRateApiService;
+use Illuminate\Support\Facades\Log;
 
 class CurrencyRateController
 {
@@ -19,6 +20,10 @@ class CurrencyRateController
     public function current()
     {
         $data = (new ExchangeRateApiService())->getAllRates();
+        if ($data === null) {
+            Log::error("Something went wrong when seeding currencies");
+            return null;
+        }
         $exchangeRateHistory = new ExchangeRateHistory();
         $exchangeRateHistory->save();
 

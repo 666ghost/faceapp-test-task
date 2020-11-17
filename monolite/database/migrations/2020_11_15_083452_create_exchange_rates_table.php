@@ -15,7 +15,7 @@ class CreateExchangeRatesTable extends Migration
     {
         Schema::create('exchange_rates', function (Blueprint $table) {
             $table->id();
-            $table->float("rate");
+            $table->float("rate", 20, 10);
             $table->foreignId("currency_id")->constrained("currencies");
             $table->foreignId("history_id")->constrained("exchange_rates_history");
         });

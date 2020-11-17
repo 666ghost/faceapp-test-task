@@ -21,7 +21,7 @@ class ExchangeRateApiService
         $data = json_decode($response->getBody(), true);
         if (!$data["success"]) {
             Log::error("https://api.exchangerate.host/ returns success=false");
-            abort(500);
+            return null;
         }
         return $data;
     }

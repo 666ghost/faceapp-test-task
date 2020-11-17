@@ -37,4 +37,4 @@ services:
     volumes:
       - ./monolite:/app/
       - ../log/:/var/log/
-      - ./php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+      - ./.docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini

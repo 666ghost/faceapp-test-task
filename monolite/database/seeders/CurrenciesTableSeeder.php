@@ -17,6 +17,9 @@ class CurrenciesTableSeeder
     public function run()
     {
         $exchangeRates = (new ExchangeRateApiService())->getAllRates();
+        if ($exchangeRates === null) {
+            abort(500);
+        }
         $currencies = array();
         foreach ($exchangeRates["rates"] as $currency => $rate) {
             $currencies[] = ["name" => $currency];
